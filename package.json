@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/UnEpicier/Cintor/issues"
   },
-  "homepage": "https://github.com/UnEpicier/Cintor#readme"
+  "homepage": "https://github.com/UnEpicier/Cintor#readme",
+  "dependencies": {
+    "discord.js": "^13.2.0"
+  }
 }
