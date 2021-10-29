@@ -49,6 +49,3 @@ Unmute the given user
 Mute all users in the voice channel where the sender of the command is, except him
     - `/unmuteall`
 Unmute all users in the voice channel where the sender of the command is, except him
-
-## License
-Any license yet.
