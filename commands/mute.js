@@ -13,8 +13,8 @@ module.exports = {
         let mutedRole = interaction.guild.roles.cache.find(r => r.name === 'Muted');
         if (!mutedRole) {
             const msg = {
-                "title": "Mute Command",
-                "description": `**ERREUR: ** Aucun role avec le nom "Muted" a été trouvé !`,
+                "title": "Mute",
+                "description": `**ERROR: ** "Muted" role missing!`,
                 "color": 13632027
             };
             interaction.reply({ embeds: [ msg ] })
@@ -23,24 +23,24 @@ module.exports = {
             if (member.user.id != "903264069690216488") {
                 if (member.roles.cache.has(mutedRole.id)) {
                     const msg = {
-                        "title": "Mute Command",
-                        "description": `<@${member.id}> est déjà mute !`,
+                        "title": "Mute",
+                        "description": `<@${member.id}> is already muted!`,
                         "color": 13632027
                     };
                     interaction.reply({ embeds: [ msg ], ephemeral: true});
                 }else{
                     member.roles.add(mutedRole);
                     const msg = {
-                        "title": "Mute Command",
-                        "description": `<@${member.id}> est maintenant mute !`,
+                        "title": "Mute",
+                        "description": `<@${member.id}> is now muted!`,
                         "color": 8311585
                     };
                     interaction.reply({ embeds: [ msg ] });
                 }
             }else{
                 const msg = {
-                    "title": "Mute Command",
-                    "description": `Vous ne pouvez pas me mute !`,
+                    "title": "Mute",
+                    "description": `You can't mute me!`,
                     "color": 13632027
                 };
                 interaction.reply({ embeds: [ msg ] , ephemeral: true });

@@ -8,8 +8,8 @@ module.exports = {
         let mutedRole = interaction.guild.roles.cache.find(r => r.name === 'Muted');
         if (!mutedRole) {
             const msg = {
-                "title": "unmuteAll Command",
-                "description": `**ERREUR: ** Aucun role avec le nom "Muted" a été trouvé !`,
+                "title": "Unmute All",
+                "description": `**ERROR: ** "Muted" role missing!`,
                 "color": 13632027
             };
             interaction.reply({ embeds: [ msg ] })
@@ -22,15 +22,15 @@ module.exports = {
                     }
                 }
                 const msg = {
-                    "title": "UnmmteAll Command",
-                    "description": `Tout les membres de <#${sender.voice.channel.id}> peuvent maintenant parler !`,
+                    "title": "Unmute All",
+                    "description": `All users from <#${sender.voice.channel.id}> can now speak!`,
                     "color": 8311585
                 };
                 interaction.reply({ embeds: [ msg ] });
             }else{
                 const msg = {
-                    "title": "UnmuteAll Command",
-                    "description": `Vous n'êtes connecté à aucun salon vocal !`,
+                    "title": "Unmute All",
+                    "description": `You are not in a voice channel!`,
                     "color": 13632027
                 };
                 interaction.reply({ embeds: [ msg ], ephemeral: true });
