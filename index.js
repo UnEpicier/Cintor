@@ -3,7 +3,7 @@ const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
 const { Client, Intents, Collection } = require ('discord.js');
 
-const client = new Client({ intents : [Intents.FLAGS.GUILDS] });
+const client = new Client({ intents : 32509 });
 
 const dotenv = require('dotenv');
 dotenv.config();

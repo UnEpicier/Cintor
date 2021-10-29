@@ -20,21 +20,30 @@ module.exports = {
             interaction.reply({ embeds: [ msg ] })
         }else{    
             const member = interaction.options.getMember('usertag', true);
-            if (member.roles.cache.has(mutedRole.id)) {
+            if (member.user.id != "903264069690216488") {
+                if (member.roles.cache.has(mutedRole.id)) {
+                    const msg = {
+                        "title": "Mute Command",
+                        "description": `<@${member.id}> est déjà mute !`,
+                        "color": 13632027
+                    };
+                    interaction.reply({ embeds: [ msg ], ephemeral: true});
+                }else{
+                    member.roles.add(mutedRole);
+                    const msg = {
+                        "title": "Mute Command",
+                        "description": `<@${member.id}> est maintenant mute !`,
+                        "color": 8311585
+                    };
+                    interaction.reply({ embeds: [ msg ] });
+                }
+            }else{
                 const msg = {
                     "title": "Mute Command",
-                    "description": `<@${member.id}> est déjà mute !`,
+                    "description": `Vous ne pouvez pas me mute !`,
                     "color": 13632027
                 };
-                interaction.reply({ embeds: [ msg ] });
-            }else{
-                member.roles.add(mutedRole);
-                const msg = {
-                    "title": "Mute Command",
-                    "description": `<@${member.id}> est maintenant mute !`,
-                    "color": 8311585
-                };
-                interaction.reply({ embeds: [ msg ] });
+                interaction.reply({ embeds: [ msg ] , ephemeral: true });
             }
         }
     }
