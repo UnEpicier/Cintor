@@ -25,7 +25,7 @@ module.exports = {
             author: interaction.member.user.username,
             author_id: interaction.member.id,
             author_image: interaction.member.user.avatarURL(),
-            choices: {}
+            choices: []
         };
         data.push(vote);
         fs.writeFileSync('./votes.json', JSON.stringify(data));
