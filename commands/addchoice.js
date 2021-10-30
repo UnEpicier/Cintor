@@ -11,8 +11,8 @@ module.exports = {
                 .setRequired(true)
         )
         .addStringOption(option =>
-            option.setName('emojiname')
-                .setDescription('Emoji\'s name that will be used for vote')
+            option.setName('emoji')
+                .setDescription('Emoji that will be used for vote')
                 .setRequired(true)
         )
         .addStringOption(option =>
@@ -24,7 +24,7 @@ module.exports = {
         let data = JSON.parse(fs.readFileSync('./votes.json', 'utf8'));
 
         const voteid = interaction.options.getInteger('voteid');
-        const emojiName = interaction.options.getString('emojiname');
+        const emoji = interaction.options.getString('emoji');
         const name = interaction.options.getString('name');
 
         let ids = [];
@@ -41,14 +41,13 @@ module.exports = {
         }else{
             const choice = {
                 title: name,
-                emoji: emojiName
+                emoji: emoji
             }
             for (let i = 0; i < data.length; i++) {
                 if (data[i].id === voteid) {
                     data[i].choices.push(choice);
                 }
             }
-            console.log(data);
             fs.writeFileSync('./votes.json', JSON.stringify(data));
 
             const msg = {
@@ -63,7 +62,7 @@ module.exports = {
                     },
                     {
                         "name": "Emoji to react with",
-                        "value": `\:${emojiName}:`,
+                        "value": `${emoji}`,
                         "inline": true
                     }
                 ]

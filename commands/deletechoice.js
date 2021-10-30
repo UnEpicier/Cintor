@@ -11,15 +11,15 @@ module.exports = {
                 .setRequired(true)
         )
         .addStringOption(option =>
-            option.setName('emojiname')
-                .setDescription('Emoji\'s name that is used for vote')
+            option.setName('emoji')
+                .setDescription('Emoji that is used for vote')
                 .setRequired(true)
         ),
     async execute(interaction) {
         let data = JSON.parse(fs.readFileSync('./votes.json', 'utf8'));
 
         const voteid = interaction.options.getInteger('voteid');
-        const emojiName = interaction.options.getString('emojiname');
+        const emoji = interaction.options.getString('emoji');
         let deleted = false;
 
         let ids = [];
@@ -37,7 +37,7 @@ module.exports = {
             for (let i = 0; i < data.length; i++) {
                 if (data[i].id === voteid) {
                     for (let j = 0; j < data[i].choices.length; j++) {
-                        if (data[i].choices[j].emoji === emojiName) {
+                        if (data[i].choices[j].emoji === emoji) {
                             data[i].choices.splice(j, 1);
                             console.log(data[i].choices);
                             deleted = true;

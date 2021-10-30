@@ -20,8 +20,8 @@ module.exports = {
 
         const vote = {
             id: voteid,
-            title: "VOTE",
-            description: "Votez pour la prochaine séance",
+            title: "Let's Vote",
+            description: "Vote for the next film!\nReact with the emoji from the film to vote!",
             author: interaction.member.user.username,
             author_id: interaction.member.id,
             author_image: interaction.member.user.avatarURL(),
