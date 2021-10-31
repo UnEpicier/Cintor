@@ -39,7 +39,6 @@ module.exports = {
                     for (let j = 0; j < data[i].choices.length; j++) {
                         if (data[i].choices[j].emoji === emoji) {
                             data[i].choices.splice(j, 1);
-                            console.log(data[i].choices);
                             deleted = true;
                         }
                     }

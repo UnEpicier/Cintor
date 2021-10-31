@@ -8,7 +8,7 @@ const client = new Client({ intents : 32509 });
 const dotenv = require('dotenv');
 dotenv.config();
 const TOKEN = process.env['TOKEN'];
-const TEST_GUILD_ID = process.env['TEST_GUILD_ID'];
+const GUILD_ID = process.env['GUILD_ID'];
 
 const commandsFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 const commands = [];
@@ -30,7 +30,7 @@ client.once('ready', () => {
 
 	(async () => {
 		try {
-			if (!TEST_GUILD_ID) {
+			if (!GUILD_ID) {
 				await rest.put(
 					Routes.applicationCommands(CLIENT_ID), {
 						body: commands
@@ -39,7 +39,7 @@ client.once('ready', () => {
 				console.log('Successfully registered application commands globally');
 			} else {
 				await rest.put(
-					Routes.applicationGuildCommands(CLIENT_ID, TEST_GUILD_ID), {
+					Routes.applicationGuildCommands(CLIENT_ID, GUILD_ID), {
 						body: commands
 					},
 				);
